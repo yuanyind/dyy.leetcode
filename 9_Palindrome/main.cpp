@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     
     Solution *s=new Solution();
-    bool result=s->isPalindrome(3234);
+    bool result=s->isPalindrome(3323);
     std::cout<<result<<std::endl;
     return 0;
 }

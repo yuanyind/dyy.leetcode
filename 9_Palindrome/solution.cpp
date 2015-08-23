@@ -20,22 +20,26 @@ public:
             return true;
         }
         
-        int count=0;
-        std::vector<int> DigNum;
+        int tempX=x;
+        int count=1;
         
-        for(int i=0;x!=0;i++){
-            DigNum.push_back(x%10);
-            x=x/10;
-            count++;
+        
+        while(tempX>=10){
+            tempX/=10;
+            count*=10;
         }
         
-        for(int i=0;i<=count/2;i++){
-            
-            if (!(DigNum[i]==DigNum[count-1-i])) {
+        int leftDig=0;
+        while (count>=10) {
+            leftDig=x/count;
+            if (leftDig!=x%10) {
                 return false;
             }
+            x-=leftDig*count;
+            x/=10;
+            count/=100;
         }
-        DigNum.clear();
+        
         return true;
     }
 };
